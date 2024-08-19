@@ -385,3 +385,18 @@ func (tb *LTable) Next(key LValue) (LValue, LValue) {
 	}
 	return LNil, LNil
 }
+
+// InternalStringMap returns the internal string map.
+func (tb *LTable) InternalStringMap(cb func(LValue, LValue)) map[string]LValue {
+	return tb.strdict
+}
+
+// InternalArray returns the internal array.
+func (tb *LTable) InternalArray(cb func(LValue, LValue)) []LValue {
+	return tb.array
+}
+
+// InternalMap returns the internal value map.
+func (tb *LTable) InternalMap(cb func(LValue, LValue)) map[LValue]LValue {
+	return tb.dict
+}
